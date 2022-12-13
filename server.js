@@ -1,3 +1,5 @@
+require('dotenv').config()
+const PORT = process.env.PORT
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -5,6 +7,8 @@ const Fs = require('fs').promises;
 const Path = require('path');
 const app = express();
 const liveServer = require('live-server');
+
+app.listen(PORT, () => console.log(`Server is running in port ${PORT}`))
 
 async function main() {
 
@@ -73,3 +77,5 @@ async function saveBooks(books) {
 }
 
 main()
+
+module.exports = app;
