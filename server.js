@@ -8,8 +8,6 @@ const Path = require('path');
 const app = express();
 const liveServer = require('live-server');
 
-app.listen(PORT, () => console.log(`Server is running in port ${PORT}`))
-
 async function main() {
 
     app.use(cors());
@@ -56,7 +54,7 @@ async function main() {
         res.json(bookToDelete)
     })
 
-    app.listen(3001, () => {
+    app.listen(process.env.PORT, () => {
         liveServer.start({
             port: 3000,
             logLevel: 0,
